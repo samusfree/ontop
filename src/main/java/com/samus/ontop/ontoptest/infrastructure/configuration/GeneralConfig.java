@@ -76,6 +76,7 @@ public class GeneralConfig {
     @Bean
     public Map<Class<? extends RuntimeException>, HttpStatus> exceptionToStatusCode() {
         return Map.of(
+                AccountAlreadyExistsException.class, HttpStatus.CONFLICT,
                 AccountNotFoundException.class, HttpStatus.NOT_FOUND,
                 BadRequestException.class, HttpStatus.BAD_REQUEST,
                 InsufficientBalanceException.class, HttpStatus.BAD_REQUEST,
