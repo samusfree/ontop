@@ -84,8 +84,9 @@ external services.
    test (windows)
 4. Inside the repo on the console run ./mvnw spring-boot:run to start the app / mvnw.cmd spring-boot:run (windows). The
    project runs on the default port 8080.
-5. Use the postman collection to test [Postman collection](readme-files/Ontop.postman_collection.json)
-6. Additional can enter to the swagger-ui [Swagger UI](http://localhost:8080/swagger-doc/webjars/swagger-ui/index.html)
+5. Use the postman collection to test [Postman collection](readme-files/Ontop.postman_collection.json) inside this collection there are the 3 generated endpoints one with the localhost URL and another with a cloud vendor url.
+6. To test first you must create the Account with the account endpoint (there is a examples in postman) and after that use the witdraw endpoint to generate the operations (there are examples in postman). Additional there is a list endpoint to review the saved data by user.
+7. Also can enter to the swagger-ui [Swagger UI](http://localhost:8080/swagger-doc/webjars/swagger-ui/index.html)
 
 ## Test evidences
 
