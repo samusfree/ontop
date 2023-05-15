@@ -1,6 +1,6 @@
-package com.samus.ontop.ontoptest.adapters.persistance.repository;
+package com.samus.ontop.ontoptest.adapters.persistence.repository;
 
-import com.samus.ontop.ontoptest.adapters.persistance.entity.TransactionEntity;
+import com.samus.ontop.ontoptest.adapters.persistence.entity.TransactionEntity;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import reactor.core.publisher.Flux;

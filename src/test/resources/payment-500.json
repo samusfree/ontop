@@ -1,0 +1,10 @@
+{
+  "requestInfo": {
+    "status": "Failed",
+    "error": "bank rejected payment"
+  },
+  "paymentInfo": {
+    "amount": 1000,
+    "id": "04b5d7b6-112e-490b-9900-753ea1bd94ae"
+  }
+}

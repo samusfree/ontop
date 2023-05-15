@@ -1,6 +1,7 @@
 package com.samus.ontop.ontoptest.application.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
 import java.util.List;
 
@@ -8,6 +9,7 @@ public class PageSupport<T> {
     public static final String FIRST_PAGE_NUM = "0";
     public static final String DEFAULT_PAGE_SIZE = "20";
 
+    @Getter
     List<T> content;
     int pageNumber;
     int pageSize;
@@ -37,9 +39,5 @@ public class PageSupport<T> {
     @JsonProperty
     public boolean last() {
         return (long) (pageNumber + 1) * pageSize >= totalElements;
-    }
-
-    public List<T> getContent() {
-        return content;
     }
 }

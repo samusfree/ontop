@@ -1,4 +1,4 @@
-package com.samus.ontop.ontoptest.adapters.persistance.entity;
+package com.samus.ontop.ontoptest.adapters.persistence.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

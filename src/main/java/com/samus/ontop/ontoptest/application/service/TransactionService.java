@@ -66,18 +66,23 @@ public class TransactionService implements TransactionManagementUseCase {
                             transactionToUpdate.setPaymentInfoId(paymentResponse.getPaymentInfo().getId());
                             transactionToUpdate.setUpdateDate(LocalDate.now());
                             return transactionPort.save(transactionToUpdate).flatMap(
-                                    savedTransaction -> walletPort.operation(new WalletRequest(request.userId(), transaction.getAmount()))
-                                            .doOnError(e -> log.error("Error to send the wallet operation: " + e.getMessage(), e))
-                                            .onErrorResume(e -> Mono.just(new WalletResponse()))
-                                            .flatMap(walletResponse -> transactionPort.getById(transaction.getId()).flatMap(transactionToUpdateFinal -> {
-                                                if (Objects.isNull(walletResponse) || Objects.isNull(walletResponse.getWalletTransactionId())) {
-                                                    return Mono.just(transactionToUpdateFinal);
-                                                }
-                                                transactionToUpdateFinal.setStatus(status);
-                                                transactionToUpdateFinal.setWalletTransactionId(walletResponse.getWalletTransactionId());
-                                                transactionToUpdateFinal.setUpdateDate(LocalDate.now());
-                                                return transactionPort.save(transactionToUpdateFinal);
-                                            }))
+                                    savedTransaction -> {
+                                        if (savedTransaction.getStatus() == TransactionStatus.FAILED) {
+                                            throw new PaymentErrorException(request.userId());
+                                        }
+                                        return walletPort.operation(new WalletRequest(request.userId(), transaction.getAmount()))
+                                                .doOnError(e -> log.error("Error to send the wallet operation: " + e.getMessage(), e))
+                                                .onErrorResume(e -> Mono.just(new WalletResponse()))
+                                                .flatMap(walletResponse -> transactionPort.getById(transaction.getId()).flatMap(transactionToUpdateFinal -> {
+                                                    if (Objects.isNull(walletResponse.getWalletTransactionId())) {
+                                                        return Mono.just(transactionToUpdateFinal);
+                                                    }
+                                                    transactionToUpdateFinal.setStatus(status);
+                                                    transactionToUpdateFinal.setWalletTransactionId(walletResponse.getWalletTransactionId());
+                                                    transactionToUpdateFinal.setUpdateDate(LocalDate.now());
+                                                    return transactionPort.save(transactionToUpdateFinal);
+                                                }));
+                                    }
                             );
                         });
                     })

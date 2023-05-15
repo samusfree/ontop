@@ -1,4 +1,4 @@
-package com.samus.ontop.ontoptest.infraestructure.configuration;
+package com.samus.ontop.ontoptest.infrastructure.configuration;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

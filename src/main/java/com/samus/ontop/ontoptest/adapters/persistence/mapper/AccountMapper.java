@@ -1,9 +1,12 @@
-package com.samus.ontop.ontoptest.adapters.persistance.mapper;
+package com.samus.ontop.ontoptest.adapters.persistence.mapper;
 
-import com.samus.ontop.ontoptest.adapters.persistance.entity.AccountEntity;
+import com.samus.ontop.ontoptest.adapters.persistence.entity.AccountEntity;
 import com.samus.ontop.ontoptest.application.domain.Account;
 
-public class AccountMapper {
+public final class AccountMapper {
+    private AccountMapper() {
+    }
+
     public static Account toAccount(AccountEntity accountEntity) {
         return new Account(accountEntity.getId(), accountEntity.getUserId(), accountEntity.getFirstName(),
                 accountEntity.getLastName(), accountEntity.getRoutingNumber(), accountEntity.getNin(),

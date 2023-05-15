@@ -1,7 +1,7 @@
-package com.samus.ontop.ontoptest.adapters.persistance;
+package com.samus.ontop.ontoptest.adapters.persistence;
 
-import com.samus.ontop.ontoptest.adapters.persistance.mapper.AccountMapper;
-import com.samus.ontop.ontoptest.adapters.persistance.repository.AccountRepository;
+import com.samus.ontop.ontoptest.adapters.persistence.mapper.AccountMapper;
+import com.samus.ontop.ontoptest.adapters.persistence.repository.AccountRepository;
 import com.samus.ontop.ontoptest.application.domain.Account;
 import com.samus.ontop.ontoptest.application.domain.exception.AccountAlreadyExistsException;
 import com.samus.ontop.ontoptest.application.domain.exception.AccountNotFoundException;

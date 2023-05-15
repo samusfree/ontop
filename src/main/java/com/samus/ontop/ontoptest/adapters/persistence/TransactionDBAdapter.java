@@ -1,10 +1,10 @@
-package com.samus.ontop.ontoptest.adapters.persistance;
+package com.samus.ontop.ontoptest.adapters.persistence;
 
-import com.samus.ontop.ontoptest.adapters.persistance.entity.TransactionEntity;
-import com.samus.ontop.ontoptest.adapters.persistance.mapper.AccountMapper;
-import com.samus.ontop.ontoptest.adapters.persistance.mapper.TransactionMapper;
-import com.samus.ontop.ontoptest.adapters.persistance.repository.AccountRepository;
-import com.samus.ontop.ontoptest.adapters.persistance.repository.TransactionRepository;
+import com.samus.ontop.ontoptest.adapters.persistence.entity.TransactionEntity;
+import com.samus.ontop.ontoptest.adapters.persistence.mapper.AccountMapper;
+import com.samus.ontop.ontoptest.adapters.persistence.mapper.TransactionMapper;
+import com.samus.ontop.ontoptest.adapters.persistence.repository.AccountRepository;
+import com.samus.ontop.ontoptest.adapters.persistence.repository.TransactionRepository;
 import com.samus.ontop.ontoptest.application.domain.PageSupport;
 import com.samus.ontop.ontoptest.application.domain.Transaction;
 import com.samus.ontop.ontoptest.application.ports.out.TransactionPort;
